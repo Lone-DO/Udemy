@@ -1,9 +1,27 @@
 {
   "name": "udemy",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Udemy",
   "main": "server.js",
-  "author": {
-    "name": "Lone Scholar"
-  }
+  "author": "Lone Scholar",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lone-DO/Udemy.git"
+  },
+  "keywords": [
+    "Udemy",
+    "Courses",
+    "tutorials",
+    "lone-do",
+    "study",
+    "2018"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lone-DO/Udemy/issues"
+  },
+  "homepage": "https://github.com/Lone-DO/Udemy#readme"
 }
