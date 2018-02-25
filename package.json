@@ -1,0 +1,9 @@
+{
+  "name": "udemy",
+  "version": "0.0.0",
+  "description": "Udemy",
+  "main": "server.js",
+  "author": {
+    "name": "Lone Scholar"
+  }
+}
