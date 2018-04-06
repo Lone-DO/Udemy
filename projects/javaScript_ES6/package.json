@@ -1,0 +1,11 @@
+{
+  "name": "javascript_es6",
+  "version": "1.0.0",
+  "description": "Udemy course work, for practics while learning ECMA2015",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
