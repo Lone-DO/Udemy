@@ -96,6 +96,7 @@ function submit() {
  * assign the boolean 'true' to the variable 'inProgress'
  * if any network request has a 'status' of 'pending'.
  */
+
 function state() {
    var requests = [
       { url: "/photos", status: "complete" },
