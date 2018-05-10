@@ -1,6 +1,6 @@
 /**CONVULTED EXAMPLE OF GENERATORS */
 
-/** 
+/**
 function* shopping() {
    //stuff on the sidewalk
 
@@ -42,40 +42,41 @@ for (let color of colors()) {
 //myColors;
 
 /******* */
+function teamFactoring() {
+   const testingTeam = {
+      lead: "Amanda",
+      tester: "Bill"
+   };
 
-const testingTeam = {
-   lead: "Amanda",
-   tester: "Bill"
-};
+   const engineeringTeam = {
+      testingTeam,
+      size: 3,
+      department: "Engineering",
+      lead: "Jill",
+      manager: "Alex",
+      engineer: "Dave"
+   };
 
-const engineeringTeam = {
-   testingTeam,
-   size: 3,
-   department: "Engineering",
-   lead: "Jill",
-   manager: "Alex",
-   engineer: "Dave"
-};
+   function* TestingTeamIterator(team) {
+      yield team.lead;
+      yield team.tester;
+   }
 
-function* TestingTeamIterator(team) {
-   yield team.lead;
-   yield team.tester;
+   function* TeamIterator(team) {
+      yield team.lead;
+      yield team.manager;
+      yield team.engineer;
+      const TestingTeamGenerator = TestingTeamIterator(team.testingTeam);
+      yield* TestingTeamGenerator;
+   }
+
+   const names = [];
+   for (let name of TeamIterator(engineeringTeam)) {
+      names.push(name);
+   }
+
+   //names;
 }
-
-function* TeamIterator(team) {
-   yield team.lead;
-   yield team.manager;
-   yield team.engineer;
-   const TestingTeamGenerator = TestingTeamIterator(team.testingTeam);
-   yield* TestingTeamGenerator;
-}
-
-const names = [];
-for (let name of TeamIterator(engineeringTeam)) {
-   names.push(name);
-}
-
-names;
 
 /***** */
 function teamRefactor() {
@@ -108,5 +109,38 @@ function teamRefactor() {
       names.push(name);
    }
 
-   names;
+   //names;
+}
+
+/***** */
+function practicalGeneratorUse() {
+   // Array Helpers Don't work inside Genrators
+   class Comment {
+      constructor(content, children) {
+         this.content = content;
+         this.children = children;
+      }
+
+      *[Symbol.iterator]() {
+         yield this.content;
+         for (let child of this.children) {
+            yield* child;
+         }
+      }
+   }
+
+   const children = [
+      new Comment("good comment", []),
+      new Comment("bad comment", []),
+      new Comment("meh", [])
+   ];
+
+   const tree = new Comment("Great post!", children);
+   const values = [];
+
+   for (let value of tree) {
+      values.push(value);
+   }
+
+   values;
 }
