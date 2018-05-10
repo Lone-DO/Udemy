@@ -43,7 +43,13 @@ for (let color of colors()) {
 
 /******* */
 
+const testingTeam = {
+   lead: "Amanda",
+   tester: "Bill"
+};
+
 const engineeringTeam = {
+   testingTeam,
    size: 3,
    department: "Engineering",
    lead: "Jill",
@@ -51,13 +57,24 @@ const engineeringTeam = {
    engineer: "Dave"
 };
 
+function* TestingTeamIterator(team) {
+   yield team.lead;
+   yield team.tester;
+}
+
 function* TeamIterator(team) {
    yield team.lead;
    yield team.manager;
    yield team.engineer;
+   const TestingTeamGenerator = TestingTeamIterator(team.testingTeam);
+   yield* TestingTeamGenerator;
 }
 
 const names = [];
 for (let name of TeamIterator(engineeringTeam)) {
    names.push(name);
 }
+
+names;
+
+/***** */
