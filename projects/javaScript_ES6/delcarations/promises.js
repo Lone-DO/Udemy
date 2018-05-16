@@ -23,4 +23,12 @@ function promisesPractical() {
    fetch(url)
       .then(response => console.log(response))
       .catch(error => console.log("BAD", error));
+
+   /**
+    *
+    * Fetch only gives error if the promise failed
+    * to reach or send to target destination.
+    * It is insimilar to other main libraries,
+    * needs manual setup to work as expected
+    */
 }
